@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>列表消息盒子(手练)</title>
+		<link rel="stylesheet" href="列表消息盒子(手练)的样式.css" type="text/css">
+		<script>
+			window.onload = function(){
+				var tabsA = document.querySelectorAll("section li a");
+				var panels = document.querySelectorAll("section article");
+				
+				for(var i =0 ; i<tabsA.length ; i++){
+					var tabA = tabsA[i];
+					setTab(tabA,i);
+				}
+				
+				function setTab(tabA,tabPos){
+					tabA.onclick = function(){
+						/*1.清除a标签上的所有class样式*/
+						for(var i =0 ; i<tabsA.length ; i++){
+							if(tabsA[i].getAttribute("class")){
+								tabsA[i].removeAttribute("class");
+							}
+						}
+						/*2.对当前点击的a标签设置class*/
+						tabA.setAttribute("class","actives");
+						/*3.清除article的class样式*/
+						for(var i=0;i<panels.length; i++){
+							if(panels[i].getAttribute("class")){
+								panels[i].removeAttribute("class");
+							}
+						}
+						
+						/*4.对a标签处于点击状态的article加上class样式（z-index：1）*/
+						panels[tabPos].setAttribute("class","panel");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<section>
+			<ul>
+				<li><a href="#" class="active">Tab 1</a></li>
+				<li><a href="#">Tab 2</a></li>
+				<li><a href="#">Tab 3</a></li>
+			</ul>
+			<div id="box">
+				<article class="panel">
+					<h1>The first tab</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis nibh, porttitor nec venenatis eu, pulvinar in augue. Vestibulum et orci scelerisque, vulputate tellus quis, lobortis dui. Vivamus varius libero at ipsum mattis efficitur ut nec nisl. Nullam eget tincidunt metus. Donec ultrices, urna maximus consequat aliquet, dui neque eleifend lorem, a auctor libero turpis at sem. Aliquam ut porttitor urna. Nulla facilisi.</p>
+				</article>
+				<article>
+					<h1>The second tab</h1>
+					<p>This tab hasn't got any Lorem Ipsum in it. But the content isn't very exciting all the same.</p>
+				</article>
+				<article>
+					<h1>The third tab</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque turpis nibh, porttitor nec venenatis eu, pulvinar in augue. And now an ordered list: how exciting!</p>
+					<ol>
+						<li>dui neque eleifend lorem, a auctor libero turpis at sem.</li>
+						<li>Aliquam ut porttitor urna.</li>
+						<li>Nulla facilisi</li>
+					</ol>
+				</article>
+			</div>
+		</section>
+	</body>
+</html>
