@@ -1,0 +1,53 @@
+body{
+	padding:0px;
+	margin:0px;
+	font-family:san-serif;
+}
+section{
+	width:450px;
+	height:400px;
+	margin:0 auto;
+}
+section ul{
+	margin-top:0px;
+	padding-left:0px;
+}
+section li{
+	width:150px;
+	float:left;
+	list-style-type:none;
+}
+section li a{
+	width:100%;
+	line-height:3;
+	background-color:red;
+	display:inline-block;
+	text-decoration:none;
+	text-align:center;
+	color:black;
+}
+section li a.active{
+	background-color:#a60000;
+	color:white;
+}
+section li a:hover,section li a:focus{
+	background-color:#a60000;
+	color:white;
+}
+section #box{
+	height:352px;
+	position:relative;
+	clear:both;
+}
+section #box article{
+	height:352px;
+	padding:10px;
+	position:absolute;
+	top:0;
+	left:0;
+	color:white;
+	background-color:#a60000;
+}
+section #box .panel{
+	z-index:1;
+}
